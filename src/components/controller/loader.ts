@@ -37,7 +37,7 @@ class Loader implements IntLoader {
     private baseLink: string;
     private options: RequestOptions;
 
-    constructor(baseLink: string, options: RequestOptions) { 
+    constructor(baseLink: string, options: RequestOptions) {
         this.baseLink = baseLink;
         this.options = options;
     }
@@ -62,7 +62,7 @@ class Loader implements IntLoader {
 
     makeUrl(options: RequestOptions, endpoint: string) {
         const urlOptions: {[key: string]: string | number | boolean | null} = { ...this.options, ...options };
-        let url = `${this.baseLink}${endpoint}?`;
+        let url: string = `${this.baseLink}${endpoint}?`;
 
         Object.keys(urlOptions).forEach((key) => {
             url += `${key}=${urlOptions[key]}&`;
@@ -76,7 +76,7 @@ class Loader implements IntLoader {
             .then(this.errorHandler)
             .then((res: Response) => res.json())
             .then((data: any) => callback(data))
-            .catch((err) => console.error(err));
+            .catch((err: string) => console.error(err));
     }
 }
 

@@ -19,7 +19,7 @@ class AppController extends AppLoader {
             let iContainer = newsContainer as Element;
 
             if (iElement.classList.contains('source__item')) {
-                const sourceId = iElement.getAttribute('data-source-id');
+                const sourceId: string | null = iElement.getAttribute('data-source-id');
                 if (sourceId !== null && iContainer.getAttribute('data-source') !== sourceId) {
                     iContainer.setAttribute('data-source', sourceId);
                     super.getResp(
@@ -35,7 +35,7 @@ class AppController extends AppLoader {
                 return;
             }
             if (iElement.parentNode) {
-                target = iElement.parentNode; 
+                target = iElement.parentNode;
             }
         }
     }
